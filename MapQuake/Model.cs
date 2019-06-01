@@ -44,8 +44,10 @@ namespace MapQuake
             {
                 xd = XDocument.Load(requestURL);
             }
-            catch(Exception e)
+            catch(System.Net.WebException e)
             {
+                //Apenas para debug, é apresentado o erro na consola
+                System.Diagnostics.Debug.Write(e);
                 //É utilizada a metodologia de assinatura dos Eventos e Delegados no tratamento da excepção
                 EvErroXML();
             }
