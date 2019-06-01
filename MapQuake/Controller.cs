@@ -7,18 +7,31 @@ using System.Windows.Forms;
 
 namespace MapQuake
 {
-    public class Controller
+    public interface IRunsMVC
+    {
+        string mensagemMVC();
+    }
+
+    public class Controller : IRunsMVC
     {
         static Model model;
         static View view;
+        static Controller controller;
+
+        public String mensagemMVC()
+        {
+            return ("Controller");
+        }
 
         [STAThread]
         static void Main()
         {
             model = new Model();
             view = new View();
+            controller = new Controller();
 
             //Subscrição de eventos
+            view.EvSair += CtrMensagemSair;
             view.EvSair += CtrSair;
             view.EvExportar += view.ExportaMapa;
             view.EvGerarMapa += CtrObtemDados;
@@ -30,6 +43,11 @@ namespace MapQuake
         }
 
         //Métodos que executam as acções dos eventos subscritos
+        static void CtrMensagemSair(object sender, EventArgs e)
+        {
+            view.MensagemSair(model.mensagemMVC() + view.mensagemMVC() + controller.mensagemMVC());
+        }
+
         static void CtrSair(object sender, EventArgs e)
         {
             Application.Exit();

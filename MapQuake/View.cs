@@ -13,11 +13,16 @@ using System.Windows.Forms;
 
 namespace MapQuake
 {
-    public partial class View : Form
+    public partial class View : Form, IRunsMVC
     {
         public event EventHandler EvGerarMapa = null;
         public event EventHandler EvExportar = null;
         public event EventHandler EvSair = null;
+
+        public String mensagemMVC()
+        {
+            return ("View");
+        }
 
         public View()
         {
@@ -68,6 +73,12 @@ namespace MapQuake
             ImageFormat format = ImageFormat.Png;
             if (sfd.ShowDialog() == System.Windows.Forms.DialogResult.OK)
                 imgMapa.Save(sfd.FileName, format);
+        }
+
+        public void MensagemSair(string mensagem)
+        {
+            MessageBox.Show("Obrigado por utilizar!\nEste software foi elaborado pela metodologia \n\n" + mensagem, "Info",
+            MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
         public void MensagemErro(object sender, EventArgs e)

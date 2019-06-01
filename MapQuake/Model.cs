@@ -8,11 +8,16 @@ using System.Xml.Linq;
 
 namespace MapQuake
 {
-    public class Model
+    public class Model : IRunsMVC
     {
         public event EventHandler EvErroXML = null;
 
         String requestURL = null;
+
+        public String mensagemMVC()
+        {
+            return ("Model");
+        }
 
         //Obtem o feed de XML dados os parâmetros do utilizador e extrai as coordenadas dos eventos,
         //devolvendo-os numa lista de coordenadas
