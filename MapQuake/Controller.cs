@@ -36,7 +36,7 @@ namespace MapQuake
             view.EvExportar += view.ExportaMapa;
             view.EvGerarMapa += CtrObtemDados;
             //Subscrição de evento de erro
-            model.EvErroXML += view.MensagemErro;
+            model.EvErroXML += new Delegado(view.MensagemErro);
             
             //Inicia execução do programa
             view.Arranca();

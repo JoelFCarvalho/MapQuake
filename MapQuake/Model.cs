@@ -8,9 +8,11 @@ using System.Xml.Linq;
 
 namespace MapQuake
 {
+    public delegate void Delegado();
+
     public class Model : IRunsMVC
     {
-        public event EventHandler EvErroXML = null;
+        public event Delegado EvErroXML = null;
 
         String requestURL = null;
 
@@ -44,8 +46,8 @@ namespace MapQuake
             }
             catch(Exception e)
             {
-                //É utilizada a metodologia de assinatura dos Eventos no tratamento da excepção
-                EvErroXML?.Invoke(this, new EventArgs());
+                //É utilizada a metodologia de assinatura dos Eventos e Delegados no tratamento da excepção
+                EvErroXML();
             }
             if(!(xd == null))
             {

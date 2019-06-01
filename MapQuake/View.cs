@@ -81,7 +81,7 @@ namespace MapQuake
             MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
-        public void MensagemErro(object sender, EventArgs e)
+        public void MensagemErro()
         {
             MessageBox.Show("O servidor retornou uma resposta vazia para uma procura \n" +
                 "pelos critérios que seleccionou.\n\n" +
