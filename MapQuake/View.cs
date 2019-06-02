@@ -1,14 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
 using System.Drawing.Imaging;
 using System.Globalization;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace MapQuake
@@ -35,10 +31,10 @@ namespace MapQuake
             //Inicialização SharpMap
             SharpMap.Layers.VectorLayer vlay = new SharpMap.Layers.VectorLayer("Mundo");
             vlay.DataSource = new SharpMap.Data.Providers.ShapeFile("..\\..\\Shapes\\TM_WORLD_BORDERS-0.3.shp", true);
-            mapBox1.Map.Layers.Add(vlay);
-            mapBox1.Map.ZoomToExtents();
-            mapBox1.Refresh();
-            mapBox1.ActiveTool = SharpMap.Forms.MapBox.Tools.Pan;
+            mapBox.Map.Layers.Add(vlay);
+            mapBox.Map.ZoomToExtents();
+            mapBox.Refresh();
+            mapBox.ActiveTool = SharpMap.Forms.MapBox.Tools.Pan;
         }
 
         public void Arranca()
@@ -60,14 +56,16 @@ namespace MapQuake
                 geomColl.Add(gf.CreatePoint(new GeoAPI.Geometries.Coordinate(lon, lat)));
             }
             vlay2.DataSource = new SharpMap.Data.Providers.GeometryProvider(geomColl);
-            mapBox1.Map.Layers.Add(vlay2);
-            mapBox1.Refresh();
+            if(mapBox.Map.Layers.Count() > 1)
+                mapBox.Map.Layers.RemoveAt(1);
+            mapBox.Map.Layers.Add(vlay2);
+            mapBox.Refresh();
         }
 
         //Exporta o mapa para ficheiro png
         public void ExportaMapa(object sender, EventArgs e)
         {
-            Image imgMapa = mapBox1.Map.GetMap();
+            Image imgMapa = mapBox.Map.GetMap();
             SaveFileDialog sfd = new SaveFileDialog();
             sfd.Filter = "Images|*.png";
             ImageFormat format = ImageFormat.Png;

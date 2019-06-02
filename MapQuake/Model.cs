@@ -1,9 +1,6 @@
 ﻿using System;
-using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Xml.Linq;
 
 namespace MapQuake
@@ -14,7 +11,8 @@ namespace MapQuake
     {
         public event Delegado EvErroXML = null;
 
-        String requestURL = null;
+        private String requestURL = null;
+        private String record_limit = "1000";
 
         public String mensagemMVC()
         {
@@ -25,7 +23,7 @@ namespace MapQuake
         //devolvendo-os numa lista de coordenadas
         public List<Coordenada> ObtemDados(String strDataMin, String strDataMax, String strLat, String strLon, String strRaio, String strMagMin, String strMagMax)
         {
-            requestURL = "http://www.seismicportal.eu/fdsnws/event/1/query?limit=1000&";
+            requestURL = "http://www.seismicportal.eu/fdsnws/event/1/query?limit=" + record_limit + "&";
             requestURL += String.IsNullOrEmpty(strDataMin) ? "" : "start=" + strDataMin + "&";
             requestURL += String.IsNullOrEmpty(strDataMax) ? "" : "end=" + strDataMax + "&";
             requestURL += String.IsNullOrEmpty(strLat) ? "" : "lat=" + strLat + "&";

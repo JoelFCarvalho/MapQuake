@@ -47,7 +47,7 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.mapBox1 = new SharpMap.Forms.MapBox();
+            this.mapBox = new SharpMap.Forms.MapBox();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -234,30 +234,31 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "Parâmetros";
             // 
-            // mapBox1
+            // mapBox
             // 
-            this.mapBox1.ActiveTool = SharpMap.Forms.MapBox.Tools.None;
-            this.mapBox1.BackColor = System.Drawing.Color.White;
-            this.mapBox1.FineZoomFactor = 10D;
-            this.mapBox1.Location = new System.Drawing.Point(2, 109);
-            this.mapBox1.MapQueryMode = SharpMap.Forms.MapBox.MapQueryType.LayerByIndex;
-            this.mapBox1.Name = "mapBox1";
-            this.mapBox1.QueryGrowFactor = 5F;
-            this.mapBox1.QueryLayerIndex = 0;
-            this.mapBox1.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(244)))), ((int)(((byte)(244)))), ((int)(((byte)(244)))));
-            this.mapBox1.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(244)))), ((int)(((byte)(244)))));
-            this.mapBox1.ShowProgressUpdate = false;
-            this.mapBox1.Size = new System.Drawing.Size(731, 405);
-            this.mapBox1.TabIndex = 1;
-            this.mapBox1.Text = "mapBox1";
-            this.mapBox1.WheelZoomMagnitude = -2D;
+            this.mapBox.ActiveTool = SharpMap.Forms.MapBox.Tools.None;
+            this.mapBox.BackColor = System.Drawing.Color.White;
+            this.mapBox.Cursor = System.Windows.Forms.Cursors.Default;
+            this.mapBox.FineZoomFactor = 10D;
+            this.mapBox.Location = new System.Drawing.Point(2, 109);
+            this.mapBox.MapQueryMode = SharpMap.Forms.MapBox.MapQueryType.LayerByIndex;
+            this.mapBox.Name = "mapBox";
+            this.mapBox.QueryGrowFactor = 5F;
+            this.mapBox.QueryLayerIndex = 0;
+            this.mapBox.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(244)))), ((int)(((byte)(244)))), ((int)(((byte)(244)))));
+            this.mapBox.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(244)))), ((int)(((byte)(244)))));
+            this.mapBox.ShowProgressUpdate = false;
+            this.mapBox.Size = new System.Drawing.Size(731, 405);
+            this.mapBox.TabIndex = 1;
+            this.mapBox.Text = "mapBox";
+            this.mapBox.WheelZoomMagnitude = -2D;
             // 
             // View
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(734, 518);
-            this.Controls.Add(this.mapBox1);
+            this.Controls.Add(this.mapBox);
             this.Controls.Add(this.panel1);
             this.Name = "View";
             this.Text = "MapQuake";
@@ -288,6 +289,6 @@
         private System.Windows.Forms.TextBox boxMagMin;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label4;
-        private SharpMap.Forms.MapBox mapBox1;
+        private SharpMap.Forms.MapBox mapBox;
     }
 }
