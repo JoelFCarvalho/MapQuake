@@ -260,6 +260,8 @@
             this.ClientSize = new System.Drawing.Size(734, 518);
             this.Controls.Add(this.mapBox);
             this.Controls.Add(this.panel1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.MaximizeBox = false;
             this.Name = "View";
             this.Text = "MapQuake";
             this.panel1.ResumeLayout(false);
